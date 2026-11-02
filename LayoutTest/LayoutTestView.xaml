@@ -1,0 +1,66 @@
+﻿<Window x:Class="LayoutTest.LayoutTestView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LayoutTest"
+        mc:Ignorable="d"
+        Title="LayoutTestView" Height="300" Width="600">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File(_F)">
+                <MenuItem Header="New(_N)" Click="NewMenuItem_Click" />
+                <MenuItem Header="Open(_O)" Click="OpenMenuItem_Click" />
+                <MenuItem Header="Save(_S)" Click="SaveMenuItem_Click" />
+                <MenuItem Header="Save As(_V)" Click="SaveAsMenuItem_Click" />
+                <Separator />
+                <MenuItem Header="Exit(_X)" Click="ExitMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="Help(_H)">
+                <MenuItem Header="About(_A)" Click="AboutMenuItem_Click" />
+            </MenuItem>
+        </Menu>
+
+        <ToolBar DockPanel.Dock="Top">
+            <Button Width="50" Height="70" ToolTip="Grid Test" Click="GridTestButton_Click">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/tb1.png" />
+                    <Label Content="Grid" />
+                </StackPanel>
+            </Button>
+            <Button Width="50" Height="70" ToolTip="StackPanel Test" Click="StackPanelTestButton_Click">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/tb2.png" />
+                    <Label Content="StackPanel" />
+                </StackPanel>
+            </Button>
+            <Button Width="50" Height="70" ToolTip="DockPanel Test" Click="DockPanelTestButton_Click">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/tb3.png" />
+                    <Label Content="DockPanel" />
+                </StackPanel>
+            </Button>
+            <Button Width="50" Height="70" ToolTip="Canvas Test" Click="CanvasTestButton_Click">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Images/tb4.png" />
+                    <Label Content="Canvas" />
+                </StackPanel>
+            </Button>
+        </ToolBar>
+        
+        <Grid Background="Transparent">
+            <Grid.ContextMenu>
+                <ContextMenu x:Name="contextMenu">
+                    <MenuItem x:Name="cmItem1" Header="Grid Test" Click="ContextMenuItem1_Click" />
+                </ContextMenu>
+            </Grid.ContextMenu>
+            
+            <UniformGrid Rows="1" Columns="4" Width="Auto" Height="Auto">
+                <Button Content="GridTest" Width="100" Height="50" Margin="5" Click="GridTestButton_Click" />
+                <Button Content="StackPanelTest" Width="100" Height="50" Margin="5" Click="StackPanelTestButton_Click" />
+                <Button Content="DockPanelTest" Width="100" Height="50" Margin="5" Click="DockPanelTestButton_Click" />
+                <Button Content="CanvasTest" Width="100" Height="50" Margin="5" Click="CanvasTestButton_Click" />
+            </UniformGrid>
+        </Grid>
+    </DockPanel>
+</Window>

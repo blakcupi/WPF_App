@@ -1,0 +1,14 @@
+<Solution>
+  <Project Path="ApplyResource/ApplyResource.csproj" Id="8b09861f-503c-4c0f-9b63-abc362477df2" />
+  <Project Path="ColorMixer/ColorMixer.csproj" Id="5ddd4800-5389-4c71-8a8e-3fbfec9d559a" />
+  <Project Path="CommandBinding/CommandBinding.csproj" Id="950df2ae-69bc-410e-bb3d-9adf9e3f5910" />
+  <Project Path="DataGridStyle/DataGridStyle.csproj" Id="9562b6f8-6ce2-4d97-bb51-51904e26bd53" />
+  <Project Path="ExchangeRate/ExchangeRate.csproj" Id="53ecdfae-6145-4f9c-8afc-9236d3a09dd9" />
+  <Project Path="GCM_WPF01/GCM.csproj" />
+  <Project Path="LayoutTest/LayoutTest.csproj" Id="8f5ef2f9-a8ca-4600-b2a6-e569218f219c" />
+  <Project Path="ListViewStyle/ListViewStyle.csproj" Id="01db635b-1779-4e07-90f4-500d19523817" />
+  <Project Path="RandomGen/RandomGen.csproj" Id="a2e6c921-bc16-48ed-8bd5-261a4813c37c" />
+  <Project Path="SimpleBinding/SimpleBinding.csproj" Id="31e576ec-69a4-4581-afb6-63caca4d5b23" />
+  <Project Path="SimpleKiosk/SimpleKiosk.csproj" Id="ee88b405-13c5-49c7-9c02-916f6ea702b2" />
+  <Project Path="SimpleMediaViewer/SimpleMediaViewer.csproj" Id="0fe7eea6-2f74-4472-8069-d1d68932db6f" />
+</Solution>

@@ -1,0 +1,25 @@
+﻿<Window x:Class="LayoutTest.DockPanelTestView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LayoutTest"
+        mc:Ignorable="d"
+        Title="DockPanelTest" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <Button DockPanel.Dock="Top" Content="One Page Memo" Height="50"/>
+            <Button DockPanel.Dock="Bottom" Content="Copyright" />
+            <StackPanel DockPanel.Dock="Left" Background="LightBlue" Width="100">
+                <Button Margin ="5"  Content="New" Height="50"/>
+                <Button Margin ="5" Content="Open" Height="50"/>
+                <Button Margin ="5" Content="Save" Height="50"/>
+                <Button Margin ="5" Content="Save As" Height="50"/>
+                <Button Margin ="5" Content="Print" Height="50"/>
+            </StackPanel>
+            <Border DockPanel.Dock="Right" Background="LightGreen" Width="Auto">
+                <StackPanel Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Border>
+        </DockPanel>
+    </Grid>
+</Window>
