@@ -172,6 +172,54 @@
                     </DataGrid.CellStyle>
                 </DataGrid>
             </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="RowDetailTemplate" Style="{StaticResource {x:Type TextBlock}}" />
+                <DataGrid ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" 
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="False"
+                          IsReadOnly="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="Age" Binding="{Binding Age}" />
+                        <DataGridTemplateColumn Header="Department">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox ItemsSource="{Binding DataContext.Departments, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                              SelectedValue="{Binding Department.Code, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              SelectedValuePath="Code"
+                                              DisplayMemberPath="Name" Style="{StaticResource TransparentComboBoxStyle}">
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Name}" />
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridCheckBoxColumn Header="IsActive" Binding="{Binding IsActive}" />
+                    </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="10">
+                                <TextBlock Text="ID: " FontWeight="Bold" />
+                                <TextBlock Text="{Binding ID}" Margin="5,0,10,0" />
+                                <TextBlock Text="Name: " FontWeight="Bold" />
+                                <TextBlock Text="{Binding Name}" Margin="5,0,10,0" />
+                                <TextBlock Text="Age: " FontWeight="Bold" />
+                                <TextBlock Text="{Binding Age}" Margin="5,0,10,0" />
+                                <TextBlock Text="Department: " FontWeight="Bold" />
+                                <TextBlock Text="{Binding Department.Name}" Margin="5,0,10,0" />
+                                <TextBlock Text="IsActive: " FontWeight="Bold" />
+                                <CheckBox IsChecked="{Binding IsActive}" IsEnabled="False" Margin="5,0,10,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
+            </StackPanel>
         </UniformGrid>        
     </Grid>
 </Window>
