@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace ListViewStyle.ViewModels
@@ -36,12 +37,46 @@ namespace ListViewStyle.ViewModels
         private readonly PersonModel _model;
 
         public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand SortCommand { get; set; }
+
+        public ICollectionView PeopleView { get; private set; }
 
         public PersonViewModel()
         {
             _model = new PersonModel();
 
             DeleteCommand = new RelayCommand(p => Delete(p as PersonModel), CanDelete);
+            SortCommand = new RelayCommand(p => Sort(p));
+
+
+            PeopleView = CollectionViewSource.GetDefaultView(People);
+            PeopleView.SortDescriptions.Add(new SortDescription(nameof(PersonModel.Id), ListSortDirection.Ascending));
+            PeopleView.Filter = o => (o is PersonModel person);
+        }
+
+        private void Sort(object? parameter)
+        {
+            var propertyName = parameter?.ToString() switch
+            {
+                "ID" => nameof(PersonModel.Id),
+                "Name" => nameof(PersonModel.Name),
+                "Age" => nameof(PersonModel.Age),
+                _ => null
+            };
+
+            if (propertyName == null)
+                return;
+
+            var hasCurrentSort = PeopleView.SortDescriptions.Count > 0;
+            var currentSort = hasCurrentSort ? PeopleView.SortDescriptions[0] : default;
+
+            //order by ascending or descending
+            var direction = hasCurrentSort && currentSort.PropertyName == propertyName && currentSort.Direction == ListSortDirection.Ascending
+                ? ListSortDirection.Descending : ListSortDirection.Ascending;
+
+            PeopleView.SortDescriptions.Clear();
+            PeopleView.SortDescriptions.Add(new SortDescription(propertyName, direction));
+            PeopleView.Refresh();
         }
 
         private void Delete(PersonModel? p)

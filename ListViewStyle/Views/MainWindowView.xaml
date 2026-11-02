@@ -158,7 +158,7 @@
                             <GridViewColumn Header="활성" Width="40">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <CheckBox IsChecked="{Binding IsActive}" HorizontalAlignment="Center" />
+                                        <CheckBox IsChecked="{Binding IsActive}" HorizontalAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -174,6 +174,30 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+
+            <StackPanel Margin="5">
+                <Label Content="CollectionViewSource, Sortable" />
+                <ListView Width="250" Margin="10" Background="SkyBlue"
+                          ItemsSource="{Binding PeopleView}" 
+                          SelectedItem="{Binding SelectedPerson}">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.ColumnHeaderContainerStyle>
+                                <Style TargetType="GridViewColumnHeader">
+                                    <Setter Property="Padding" Value="5" />
+                                    <Setter Property="Background" Value="Gold" />
+                                    <Setter Property="Command" Value="{Binding DataContext.SortCommand, RelativeSource={RelativeSource AncestorType=ListView}}" />
+                                    <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=Column.Header}" />
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
+
+                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
+                            <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Age}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
