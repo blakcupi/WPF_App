@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="UserControls.Controls.UCSearchBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="ucSearchBox"
+             Height="30" MinWidth="140">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ControlStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <Style x:Key="ClearButtonStyle" TargetType="Button" BasedOn="{StaticResource IconButtonStyle}">
+                <Setter Property="Visibility" Value="Visible" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Text, ElementName=ucSearchBox}" Value="">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Text, ElementName=ucSearchBox}" Value="{x:Null}">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Border BorderBrush="#FFABADB3" BorderThickness="1" Background="White" CornerRadius="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0" 
+                     x:Name="searchTextBox"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     Padding="6,0"
+                     VerticalContentAlignment="Center"
+                     Text="{Binding Text, ElementName=ucSearchBox, UpdateSourceTrigger=PropertyChanged}"
+                     PreviewKeyDown="SearchTextBox_PreviewKeyDown"/>
+            <TextBlock Grid.Column="0" Text="{Binding Watermark, ElementName=ucSearchBox}" 
+                       VerticalAlignment="Center" Margin="5,0,5,0"
+                       IsHitTestVisible="False"
+                       Foreground="Gray">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=ucSearchBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Text, ElementName=ucSearchBox}" Value="{x:Null}">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <Button Grid.Column="1" Content="&#xE711;" ToolTip="지우기" 
+                    Style="{StaticResource ClearButtonStyle}"
+                    Command="{Binding ClearCommand, ElementName=ucSearchBox}"/>
+
+            <Button Grid.Column="2" Content="&#xE721;" ToolTip="검색" 
+                    Style="{StaticResource IconButtonStyle}"
+                    Click="Button_Click" />
+
+            <!--<Button Grid.Column="2" Content="&#xE721;" ToolTip="검색" 
+                    Style="{StaticResource IconButtonStyle}"
+                    Command="{Binding SearchCommand, ElementName=ucSearchBox}"
+                    CommandParameter="{Binding Text, ElementName=ucSearchBox}" />-->
+        </Grid>
+    </Border>
+</UserControl>

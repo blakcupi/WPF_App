@@ -11,4 +11,5 @@
   <Project Path="SimpleBinding/SimpleBinding.csproj" Id="31e576ec-69a4-4581-afb6-63caca4d5b23" />
   <Project Path="SimpleKiosk/SimpleKiosk.csproj" Id="ee88b405-13c5-49c7-9c02-916f6ea702b2" />
   <Project Path="SimpleMediaViewer/SimpleMediaViewer.csproj" Id="0fe7eea6-2f74-4472-8069-d1d68932db6f" />
+  <Project Path="UserControls/UserControls.csproj" Id="2a6a34ef-cf73-4431-993f-032a65482bbe" />
 </Solution>
