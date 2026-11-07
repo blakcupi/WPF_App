@@ -10,12 +10,10 @@ namespace UserControls.Controls
     /// </summary>
     public partial class UCBusyIndicator : UserControl
     {
-        public static readonly DependencyProperty IsBusyProperty =
-            DependencyProperty.Register(nameof(IsBusy), typeof(bool), typeof(UCBusyIndicator),
+        public static readonly DependencyProperty IsBusyProperty = DependencyProperty.Register(nameof(IsBusy), typeof(bool), typeof(UCBusyIndicator),
                 new PropertyMetadata(false));
 
-        public static readonly DependencyProperty MessageProperty =
-            DependencyProperty.Register(nameof(Message), typeof(string), typeof(UCBusyIndicator),
+        public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(nameof(Message), typeof(string), typeof(UCBusyIndicator),
                 new PropertyMetadata("처리 중입니다..."));
 
         public bool IsBusy

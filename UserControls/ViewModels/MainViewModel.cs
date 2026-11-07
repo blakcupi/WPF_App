@@ -15,27 +15,35 @@ namespace UserControls.ViewModels
 
         public RelayCommand<string?> SearchCommand { get; } // Search Tab
         public RelayCommandAsync<string?> CrawlingCommand { get; } // Crawling Tab
-
-
+        public RelayCommand<string?> BackgroundCommand { get; } // ToggleSwitch Tab
 
         public MainViewModel()
         {
             _model = new MainModel();
 
             SearchCommand = new RelayCommand<string?>(Search, (searchText) => !string.IsNullOrWhiteSpace(searchText)); // Search Tab
-            CrawlingCommand = new RelayCommandAsync<string?>(Crawl, (uri) => !string.IsNullOrWhiteSpace(uri)); // Crawling Tab
+            CrawlingCommand = new RelayCommandAsync<string?>(Crawling, (uri) => !string.IsNullOrWhiteSpace(uri)); // Crawling Tab
+            BackgroundCommand = new RelayCommand<string?>(ApplyColor); // ToggleSwitch Tab
         }
-
 
         #region Methods
 
+        private void ApplyColor(string? color) // ToggleSwitch Tab
+        {
+            if (!IsChecked)
+            {
+                BackgroundColor = "White";
+                return;
+            }
+
+            BackgroundColor = color ?? "White";
+        }
 
         private static HttpClient CreateClient() // Crawling Tab
         {
             var handler = new HttpClientHandler
             {
-                AutomaticDecompression = System.Net.DecompressionMethods.GZip
-                                       | System.Net.DecompressionMethods.Deflate
+                AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
             };
 
             var client = new HttpClient(handler) { Timeout = TimeSpan.FromSeconds(30) };
@@ -44,8 +52,7 @@ namespace UserControls.ViewModels
             return client;
         }
 
-
-        private async Task Crawl(string? uri) // Crawling Tab
+        private async Task Crawling(string? uri) // Crawling Tab
         {
             if (!Uri.TryCreate(uri?.Trim(), UriKind.Absolute, out var crawlUri) || (crawlUri.Scheme != Uri.UriSchemeHttp && crawlUri.Scheme != Uri.UriSchemeHttps))
             {
@@ -59,7 +66,7 @@ namespace UserControls.ViewModels
 
             try
             {
-                using var response = await _client.GetAsync(uri);
+                using var response = await _client.GetAsync(crawlUri);
                 crawledData = await response.Content.ReadAsStringAsync();
 
                 StatusText = $"{(int)response.StatusCode} {response.ReasonPhrase} / {crawledData.Length:N0}자";
@@ -72,12 +79,15 @@ namespace UserControls.ViewModels
             {
                 StatusText = $"요청 실패: {ex.Message}";
             }
+            catch(Exception ex)
+            {
+                StatusText = $"오류 발생: {ex.Message}";
+            }
             finally
             {
                 IsBusy = false;
+                CrawlResult = crawledData;
             }
-
-            CrawlResult = crawledData;            
         }
 
         private void Search(string? searchText) // Search Tab
@@ -95,7 +105,7 @@ namespace UserControls.ViewModels
                     count++;
             }
 
-            Task.Delay(2000).ContinueWith(_ =>
+            Task.Delay(1000).ContinueWith(_ =>
             {
                 StatusText = $"'{searchText}' 단어 {count}개 검색 완료.";
             }, TaskScheduler.FromCurrentSynchronizationContext());
@@ -146,9 +156,8 @@ namespace UserControls.ViewModels
             }
         }
 
-
-        // Crawling Tab
-        public string UriText
+        
+        public string UriText // Crawling Tab
         {
             get => _model.UriText;
             set
@@ -158,7 +167,7 @@ namespace UserControls.ViewModels
             }
         }
 
-        public string CrawlResult
+        public string CrawlResult // Crawling Tab
         {
             get => _model.CrawlResult;
             set => SetProperty(ref _model.CrawlResult, value);
@@ -171,54 +180,25 @@ namespace UserControls.ViewModels
         }
 
 
-        public double Quantity
+        public bool IsChecked // ToggleSwitch Tab
         {
-            get => _model.Quantity;
-            set => SetProperty(ref _model.Quantity, value);
+            get => _model.IsChecked;
+            set
+            {
+                SetProperty(ref _model.IsChecked, value);
+                if (!IsChecked)
+                    BackgroundColor = "White";
+            }
         }
 
-        public string Password
+        private string _backgroundColor = "White"; // ToggleSwitch Tab
+        public string BackgroundColor // ToggleSwitch Tab
         {
-            get => _model.Password;
-            set => SetProperty(ref _model.Password, value);
-        }
-
-        public int CurrentPage
-        {
-            get => _model.CurrentPage;
-            set => SetProperty(ref _model.CurrentPage, value);
-        }
-
-        public int TotalPages
-        {
-            get => _model.TotalPages;
-            set => SetProperty(ref _model.TotalPages, value);
-        }
+            get => _backgroundColor;
+            set => SetProperty(ref _backgroundColor, value);
+        } 
 
 
-        public bool NotificationsEnabled
-        {
-            get => _model.NotificationsEnabled;
-            set => SetProperty(ref _model.NotificationsEnabled, value);
-        }
-
-        public int Score
-        {
-            get => _model.Score;
-            set => SetProperty(ref _model.Score, value);
-        }
-
-        public string FilePath
-        {
-            get => _model.FilePath;
-            set => SetProperty(ref _model.FilePath, value);
-        }
-
-        public string FolderPath
-        {
-            get => _model.FolderPath;
-            set => SetProperty(ref _model.FolderPath, value);
-        }
 
         #endregion
     }

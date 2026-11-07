@@ -77,6 +77,27 @@
                     <uc:UCBusyIndicator Grid.Row="1" IsBusy="{Binding IsBusy}" Message="불러오는 중..." />
                 </Grid>
             </TabItem>
+            
+            <TabItem TabIndex="2" Header="ToggleSwitch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Button Margin="5" Width="30" Height="30" Background="Red" Command="{Binding BackgroundCommand}" CommandParameter="Red" />
+                        <Button Margin="5" Width="30" Height="30" Background="Green" Command="{Binding BackgroundCommand}" CommandParameter="Green" />
+                        <Button Margin="5" Width="30" Height="30" Background="Blue" Command="{Binding BackgroundCommand}" CommandParameter="Blue" />
+                        <uc:UCToggleSwitch Margin="30 0" IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                           OnContent="배경색 적용" OffContent="배경색 제거" />
+                    </StackPanel>
+
+                    <Border Margin="5" Grid.Row="1">
+                        <StackPanel Background="{Binding BackgroundColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </Border>
+                </Grid>
+            </TabItem>
         </TabControl>
 
         <Border Grid.Row="1" Margin="5" >

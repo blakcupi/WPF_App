@@ -15,18 +15,12 @@ namespace UserControls.Models
 
 
         public string UriText = string.Empty; // Crawling Tab
-        public string CrawlResult = string.Empty;
+        public string CrawlResult = string.Empty; // Crawling Tab
+        public bool IsBusy = false; // Crawling Tab
 
 
+        public bool IsChecked = false; // ToggleSwitch Tab
 
-        public double Quantity = 1;
-        public string Password = string.Empty;
-        public int CurrentPage = 1;
-        public int TotalPages = 12;
-        public bool IsBusy = false;
-        public bool NotificationsEnabled = true;
-        public int Score = 3;
-        public string FilePath = string.Empty;
-        public string FolderPath = string.Empty;
+
     }
 }
