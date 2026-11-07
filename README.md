@@ -9,7 +9,7 @@ WPF 학습용 예제 모음입니다. 컨트롤, MVVM, 리소스, 스타일을 �
 | `SimpleBinding` | 데이터 바인딩 기초 |
 | `CommandBinding` | Command를 이용한 이벤트 처리 |
 | `LayoutTest` | Grid, StackPanel 등 레이아웃 컨트롤 실습 |
-| `UserControls` | 사용자 정의 컨트롤 작성 |
+| `UserControls` | 사용자 정의 컨트롤 작성<br>&emsp;<sub>🔹 `UCSearchBox` - 검색박스</sub><br>&emsp;<sub>🔹 `UCBusyIndicator` - 로딩표시</sub><br>&emsp;<sub>🔹 `UCToggleSwitch` - 토글스위치</sub> |
 | `ApplyResource` | 리소스(ResourceDictionary) 적용 |
 | `ListViewStyle` | ListView 스타일/템플릿 |
 | `DataGridStyle` | DataGrid 스타일/템플릿 |
