@@ -6,25 +6,26 @@ WPF 학습용 예제 모음입니다. 컨트롤, MVVM, 리소스, 스타일을 �
 
 | 프로젝트 | 설명 |
 |---|---|
-| `SimpleBinding` | 데이터 바인딩 기초 |
-| `CommandBinding` | Command를 이용한 이벤트 처리 |
-| `LayoutTest` | Grid, StackPanel 등 레이아웃 컨트롤 실습 |
-| `UserControls` | 사용자 정의 컨트롤 작성<br>&emsp;<sub>🔹 `UCSearchBox` - 검색박스</sub><br>&emsp;<sub>🔹 `UCBusyIndicator` - 로딩표시</sub><br>&emsp;<sub>🔹 `UCToggleSwitch` - 토글스위치</sub> |
-| `ApplyResource` | 리소스(ResourceDictionary) 적용 |
-| `ListViewStyle` | ListView 스타일/템플릿 |
-| `DataGridStyle` | DataGrid 스타일/템플릿 |
-| `ColorMixer` | 색상 값 조절 예제 |
-| `RandomGen` | 난수 생성 예제 |
-| `ExchangeRate` | 환율 계산 예제 |
-| `SimpleKiosk` | 간단한 키오스크 화면 예제 |
-| `SimpleMediaViewer` | 간단한 미디어 뷰어 |
-| `GCM_WPF01` | WPF 실습 프로젝트 |
+| 01. `GCM_WPF01` | WPF 실습 프로젝트 |
+| 02. `RandomGen` | 난수 생성 예제 |
+| 03. `ExchangeRate` | 환율 계산 예제 |
+| 04. `ColorMixer` | 색상 값 조절 예제 |
+| 05. `LayoutTest` | Grid, StackPanel 등 레이아웃 컨트롤 실습 |
+| 06. `SimpleKiosk` | 간단한 키오스크 화면 예제 |
+| 07. `SimpleMediaViewer` | 간단한 미디어 뷰어 |
+| 08. `SimpleBinding` | 데이터 바인딩 기초 |
+| 09. `CommandBinding` | Command를 이용한 이벤트 처리 |
+| 10. `ApplyResource` | 리소스(ResourceDictionary) 적용 |
+| 11. `ListViewStyle` | ListView 스타일/템플릿 |
+| 12. `DataGridStyle` | DataGrid 스타일/템플릿 |
+| 13. `UserControls` | 사용자 정의 컨트롤 작성<br>&emsp;<sub>🔹 `UCSearchBox` - 검색박스</sub><br>&emsp;<sub>🔹 `UCBusyIndicator` - 로딩표시</sub><br>&emsp;<sub>🔹 `UCToggleSwitch` - 토글스위치</sub> |
+
 
 ## 개발 환경
 
 - Windows
 - Visual Studio 2022 (17.10 이상, `.slnx` 형식 지원 필요)
-- .NET: TODO (프로젝트의 TargetFramework 기재)
+- .NET: .NET8 기준
 
 ## 실행 방법
 
