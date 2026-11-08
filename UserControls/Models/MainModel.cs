@@ -21,6 +21,6 @@ namespace UserControls.Models
 
         public bool IsChecked = false; // ToggleSwitch Tab
 
-
+        public double Value = 0; // Numeric Tab
     }
 }

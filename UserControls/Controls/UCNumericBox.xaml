@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="UserControls.Controls.UCNumericBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="ucNumericBox"
+             Height="30" Width="90">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ControlStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Border Background="White" BorderBrush="LightGray" BorderThickness="1" CornerRadius="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Row="0" Grid.Column="0"  
+                         x:Name="InputTextBox" BorderThickness="0" Background="Transparent"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                         Text="{Binding Value, ElementName=ucNumericBox, UpdateSourceTrigger=LostFocus}"
+                         PreviewKeyDown="InputTextBox_PreviewKeyDown"
+                         PreviewMouseWheel="InputTextBox_PreviewMouseWheel"/>
+
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <RepeatButton Grid.Row="0" Grid.Column="1" 
+                            Padding="5 0"
+                            Style="{StaticResource IconButtonStyle}" FontSize="8" Content="&#xE70E;" 
+                            BorderThickness="0" Background="LightGray"
+                                  Command="{Binding IncreaseCommand, ElementName=ucNumericBox}"/>
+                    <RepeatButton Grid.Row="1" Grid.Column="1"
+                            Padding="5 0"
+                            Style="{StaticResource IconButtonStyle}" FontSize="8" Content="&#xE70D;" 
+                            BorderThickness="0" Background="LightGray"
+                                  Command="{Binding DecreaseCommand, ElementName=ucNumericBox}"/>
+                </Grid>
+                
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -98,6 +98,13 @@
                     </Border>
                 </Grid>
             </TabItem>
+
+            <TabItem TabIndex="3" Header="NumericUpDown">
+                <Grid>
+                    <uc:UCNumericBox Margin="5" Value="{Binding ValueText}"
+                                     MinValue="0" MaxValue="100" StepValue="5" />
+                </Grid>
+            </TabItem>
         </TabControl>
 
         <Border Grid.Row="1" Margin="5" >

@@ -198,7 +198,15 @@ namespace UserControls.ViewModels
             set => SetProperty(ref _backgroundColor, value);
         } 
 
-
+        public double ValueText // Numeric Tab
+        {
+            get => _model.Value;
+            set
+            {
+                if (SetProperty<double>(ref _model.Value, value))
+                    StatusText = $@"현재값 : {ValueText}";
+            }
+        }
 
         #endregion
     }
