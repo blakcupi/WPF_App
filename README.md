@@ -4,21 +4,21 @@ WPF 학습용 예제 모음입니다. 컨트롤, MVVM, 리소스, 스타일을 �
 
 ## 프로젝트 목록
 
-| 프로젝트 | 설명 |
-|---|---|
-| 01. `GCM_WPF01` | WPF 실습 프로젝트 |
-| 02. `RandomGen` | 난수 생성 예제 |
-| 03. `ExchangeRate` | 환율 계산 예제 |
-| 04. `ColorMixer` | 색상 값 조절 예제 |
-| 05. `LayoutTest` | Grid, StackPanel 등 레이아웃 컨트롤 실습 |
-| 06. `SimpleKiosk` | 간단한 키오스크 화면 예제 |
-| 07. `SimpleMediaViewer` | 간단한 미디어 뷰어 |
-| 08. `SimpleBinding` | 데이터 바인딩 기초 |
-| 09. `CommandBinding` | Command를 이용한 이벤트 처리 |
-| 10. `ApplyResource` | 리소스(ResourceDictionary) 적용 |
-| 11. `ListViewStyle` | ListView 스타일/템플릿 |
-| 12. `DataGridStyle` | DataGrid 스타일/템플릿 |
-| 13. `UserControls` | 사용자 정의 컨트롤 작성<br>&emsp;<sub>🔹 `UCSearchBox` - 검색박스</sub><br>&emsp;<sub>🔹 `UCBusyIndicator` - 로딩표시</sub><br>&emsp;<sub>🔹 `UCToggleSwitch` - 토글스위치</sub><br>&emsp;<sub>🔹 `UCNumericBox` - 숫자올리기/내리기</sub> |
+| 번호 | 프로젝트 | 설명 |
+|:---:|---|---|
+| 1| `GCM_WPF01` | WPF 실습 프로젝트 |
+| 2| `RandomGen` | 난수 생성 예제 |
+| 3| `ExchangeRate` | 환율 계산 예제 |
+| 4| `ColorMixer` | 색상 값 조절 예제 |
+| 5| `LayoutTest` | Grid, StackPanel 등 레이아웃 컨트롤 실습 |
+| 6| `SimpleKiosk` | 간단한 키오스크 화면 예제 |
+| 7| `SimpleMediaViewer` | 간단한 미디어 뷰어 |
+| 8| `SimpleBinding` | 데이터 바인딩 기초 |
+| 9| `CommandBinding` | Command를 이용한 이벤트 처리 |
+| 10| `ApplyResource` | 리소스(ResourceDictionary) 적용 |
+| 11| `ListViewStyle` | ListView 스타일/템플릿 |
+| 12| `DataGridStyle` | DataGrid 스타일/템플릿 |
+| 13| `UserControls` | 사용자 정의 컨트롤 작성<br>&emsp;<sub>🔹 `UCSearchBox` - 검색박스</sub><br>&emsp;<sub>🔹 `UCBusyIndicator` - 로딩표시</sub><br>&emsp;<sub>🔹 `UCToggleSwitch` - 토글스위치</sub><br>&emsp;<sub>🔹 `UCNumericBox` - 숫자올리기/내리기</sub> |
 
 
 ## 개발 환경
