@@ -18,7 +18,7 @@ WPF 학습용 예제 모음입니다. 컨트롤, MVVM, 리소스, 스타일을 �
 | 10. `ApplyResource` | 리소스(ResourceDictionary) 적용 |
 | 11. `ListViewStyle` | ListView 스타일/템플릿 |
 | 12. `DataGridStyle` | DataGrid 스타일/템플릿 |
-| 13. `UserControls` | 사용자 정의 컨트롤 작성<br>&emsp;<sub>🔹 `UCSearchBox` - 검색박스</sub><br>&emsp;<sub>🔹 `UCBusyIndicator` - 로딩표시</sub><br>&emsp;<sub>🔹 `UCToggleSwitch` - 토글스위치</sub> |
+| 13. `UserControls` | 사용자 정의 컨트롤 작성<br>&emsp;<sub>🔹 `UCSearchBox` - 검색박스</sub><br>&emsp;<sub>🔹 `UCBusyIndicator` - 로딩표시</sub><br>&emsp;<sub>🔹 `UCToggleSwitch` - 토글스위치</sub><br>&emsp;<sub>🔹 `UCNumericBox` - 숫자올리기/내리기</sub> |
 
 
 ## 개발 환경

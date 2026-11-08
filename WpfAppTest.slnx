@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/솔루션 항목/">
+    <File Path="README.md" />
+  </Folder>
   <Project Path="ApplyResource/ApplyResource.csproj" Id="8b09861f-503c-4c0f-9b63-abc362477df2" />
   <Project Path="ColorMixer/ColorMixer.csproj" Id="5ddd4800-5389-4c71-8a8e-3fbfec9d559a" />
   <Project Path="CommandBinding/CommandBinding.csproj" Id="950df2ae-69bc-410e-bb3d-9adf9e3f5910" />
