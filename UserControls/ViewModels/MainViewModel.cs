@@ -198,13 +198,23 @@ namespace UserControls.ViewModels
             set => SetProperty(ref _backgroundColor, value);
         } 
 
-        public double ValueText // Numeric Tab
+        public double ValueText // Etc. Tab
         {
             get => _model.Value;
             set
             {
                 if (SetProperty<double>(ref _model.Value, value))
                     StatusText = $@"현재값 : {ValueText}";
+            }
+        }
+
+        public int StarText
+        {
+            get => _model.StarValue;
+            set
+            {
+                if (SetProperty<int>(ref _model.StarValue, value))
+                    StatusText = $@"별점 : {StarText}";
             }
         }
 

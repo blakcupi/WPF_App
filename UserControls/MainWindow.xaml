@@ -99,10 +99,30 @@
                 </Grid>
             </TabItem>
 
-            <TabItem TabIndex="3" Header="NumericUpDown">
-                <Grid>
-                    <uc:UCNumericBox Margin="5" Value="{Binding ValueText}"
+            <TabItem TabIndex="3" Header="Etc.">
+                <Grid ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock  Grid.Row="0" Grid.Column="0"
+                                Text="NumericUpDown" 
+                                Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <uc:UCNumericBox Grid.Row="0" Grid.Column="1" 
+                                     Margin="5" Value="{Binding ValueText}"
                                      MinValue="0" MaxValue="100" StepValue="5" />
+
+                    <TextBlock  Grid.Row="1" Grid.Column="0"
+                                Text="StarScore" 
+                                Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <uc:UCStarScore Grid.Row="1" Grid.Column="1"
+                                    Margin="5" Value="{Binding StarText}"
+                                    Maximum="10" IsReadOnly="False"/>
                 </Grid>
             </TabItem>
         </TabControl>
